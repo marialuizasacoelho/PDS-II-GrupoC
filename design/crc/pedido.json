@@ -1,0 +1,21 @@
+{
+  "name": "Pedido",
+  "superclasses": "",
+  "subclasses": "",
+  "type": 1,
+  "responsibilities": [
+    "Registrar a data em que foi realizado",
+    "Registrar o valor total da compra\t",
+    "Armazenar os itens comprados",
+    "Manter e atualizar o status do pedido\t",
+    "Associar-se ao cliente que o realizou\t",
+    "Solicitar os dados necessários para concluir a compra\t",
+    "Confirmar o registro do pedido após a confirmação da compra\t",
+    "Atualizar o estoque dos produtos comprados"
+  ],
+  "collaborators": [
+    "Cliente",
+    "ItemPedido",
+    "Produto"
+  ]
+}
