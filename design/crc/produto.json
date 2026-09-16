@@ -1,0 +1,20 @@
+{
+  "name": "Produto",
+  "superclasses": "",
+  "subclasses": "",
+  "type": 1,
+  "responsibilities": [
+    "Armazenar nome, descrição e preço\t",
+    "Armazenar a quantidade disponível em estoque\t",
+    "Informar se está disponível para compra",
+    "Atualizar a quantidade em estoque após uma venda\t",
+    "Verificar se há estoque suficiente para uma quantidade solicitada\t",
+    "Fornecer suas informações detalhadas para exibição\t",
+    "Validar seus próprios dados obrigatórios ao ser criado ou editado"
+  ],
+  "collaborators": [
+    "CatalogoDeProdutos",
+    "ItemCarrinho",
+    "ItemPedido"
+  ]
+}
