@@ -1,0 +1,19 @@
+{
+  "name": "CatalogoDeProdutos",
+  "superclasses": "",
+  "subclasses": "",
+  "type": 1,
+  "responsibilities": [
+    "Manter a lista de todos os produtos cadastrados\t",
+    "Adicionar um novo produto à lista\t",
+    "Remover um produto da lista\t",
+    "Buscar produtos pelo nome\t",
+    "Listar os produtos disponíveis para compra\t",
+    "Informar quando nenhum produto corresponder à busca\t",
+    "Fornecer os detalhes de um produto específico"
+  ],
+  "collaborators": [
+    "Produto",
+    "Administrador"
+  ]
+}
