@@ -1,0 +1,20 @@
+{
+  "name": "SistemaDeAutenticacao",
+  "superclasses": "",
+  "subclasses": "",
+  "type": 1,
+  "responsibilities": [
+    "Validar as credenciais informadas (e-mail e senha)",
+    "Autenticar um usuário durante o login",
+    "Impedir o acesso quando as credenciais forem inválidas",
+    "Informar ao usuário quando houver erro na autenticação",
+    "Controlar a sessão ativa de um usuário autenticado",
+    "Permitir o encerramento da sessão (logout)",
+    "Verificar se um usuário autenticado possui permissão de administrador",
+    "Restringir o acesso a funcionalidades administrativas a usuários não autorizados"
+  ],
+  "collaborators": [
+    "Usuario",
+    "GerenciadorDeUsuarios"
+  ]
+}
