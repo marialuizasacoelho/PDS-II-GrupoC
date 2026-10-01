@@ -3,9 +3,13 @@ E-commerce - Grupo C
 - Integrantes
 
 Maria Luiza Sá Coelho - 2025018600
+
 Daniel Marques Carvalho - 2024028602
+
 Gabriel Alves Lima - 2024073055
+
 Arthur Moreira Alves de Araújo - 2025075140
+
 Marcelo Rodrigues Viegas d’Abreu - 2025500135
 
 - Sobre o projeto
@@ -21,34 +25,36 @@ Além disso, conseguimos aplicar, de forma integrada, os conceitos aprendidos em
 - Objetivos
 
 Os principais objetivos do sistema são:
-    - Permitir o cadastro e a autenticação de clientes.
-    - Disponibilizar a consulta e busca de produtos.
-    - Permitir o gerenciamento de produtos e do estoque por administradores.
-    - Possibilitar a criação e o gerenciamento de carrinhos de compras.
-    - Permitir a finalização de compras e registro de pedidos.
-    - Possibilitar a consulta do histórico e do status dos pedidos.
+
+- Permitir o cadastro e a autenticação de clientes.
+- Disponibilizar a consulta e busca de produtos.
+- Permitir o gerenciamento de produtos e do estoque por administradores.
+- Possibilitar a criação e o gerenciamento de carrinhos de compras.
+- Permitir a finalização de compras e registro de pedidos.
+- Possibilitar a consulta do histórico e do status dos pedidos.
 
 - Principais funcionalidades
 
 Para clientes
-    - Cadastro e autenticação de usuários.
-    - Consulta e busca de produtos.
-    - Visualização das informações dos produtos.
-    - Adição, remoção e alteração de produtos no carrinho.
-    - Finalização de compras.
-    - Consulta do histórico de pedidos.
-    - Consulta dos produtos e do status de pedidos realizados.
+- Cadastro e autenticação de usuários.
+- Consulta e busca de produtos.
+- Visualização das informações dos produtos.
+- Adição, remoção e alteração de produtos no carrinho.
+- Finalização de compras.
+- Consulta do histórico de pedidos.
+- Consulta dos produtos e do status de pedidos realizados.
 
 Para administradores
-    - Cadastro de produtos.
-    - Edição de informações de produtos.
-    - Remoção de produtos do catálogo.
-    - Gerenciamento da quantidade disponível em estoque.
-    - Controle de acesso às funcionalidades administrativas.
+- Cadastro de produtos.
+- Edição de informações de produtos.
+- Remoção de produtos do catálogo.
+- Gerenciamento da quantidade disponível em estoque.
+- Controle de acesso às funcionalidades administrativas.
 
 - Modelagem e desenvolvimento
 
 A modelagem inicial do sistema foi realizada utilizando User Stories e cartões CRC (Classe, Responsabilidade e Colaboração).
+
 As principais classes identificadas na modelagem são: Cliente, Administrador, SistemaDeAutenticacao, Produto, CatalogoDeProdutos, Carrinho e Pedido.
 Os cartões CRC e as User Stories estão disponíveis no diretório design/.
 
