@@ -22,8 +22,6 @@ O projeto foi escolhido por apresentar um contexto conhecido e comum, permitindo
 
 Além disso, conseguimos aplicar, de forma integrada, os conceitos aprendidos em Programação e Desenvolvimento de Software II durante 2026/2, como programação orientada a objetos, modelagem de classes e organização modular. 
 
-- Objetivos
-
 Os principais objetivos do sistema são:
 
 - Permitir o cadastro e a autenticação de clientes.
@@ -33,7 +31,8 @@ Os principais objetivos do sistema são:
 - Permitir a finalização de compras e registro de pedidos.
 - Possibilitar a consulta do histórico e do status dos pedidos.
 
-- Principais funcionalidades
+
+    - Principais funcionalidades
 
 Para clientes
 - Cadastro e autenticação de usuários.
@@ -51,7 +50,8 @@ Para administradores
 - Gerenciamento da quantidade disponível em estoque.
 - Controle de acesso às funcionalidades administrativas.
 
-- Modelagem e desenvolvimento
+
+    - Modelagem e desenvolvimento
 
 A modelagem inicial do sistema foi realizada utilizando User Stories e cartões CRC (Classe, Responsabilidade e Colaboração).
 
