@@ -3,6 +3,7 @@
 
 #include <string>
 #include <vector>
+#include "Produto.hpp"
 
 class CatalogoDeProdutos {
 private:
@@ -18,7 +19,7 @@ public:
      * @brief Adiciona um produto ao catálogo.
      * @param produto Produto a ser adicionado.
      */
-    void adicionarProduto(/* Produto produto */);
+    void adicionarProduto(const Produto& produto);
 
     /**
      * @brief Remove um produto do catálogo.
@@ -31,7 +32,7 @@ public:
      * @param id Identificador do produto.
      * @return Produto encontrado.
      */
-    // Produto buscarProduto(int id);
+    Produto* buscarProduto(int id);
 
     /**
      * @brief Exibe os produtos disponíveis no catálogo.
