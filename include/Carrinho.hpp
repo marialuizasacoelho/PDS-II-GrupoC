@@ -1,11 +1,11 @@
 #ifndef CARRINHO_HPP
 #define CARRINHO_HPP
 
+#include <map>
+
 class Carrinho {
 private:
-    // produtos adicionados
-    // quantidade
-    // valor total
+    std::map<int, int> produtos;
 
 public:
     /**
@@ -21,7 +21,7 @@ public:
     void adicionarProduto(int id, int quantidade);
 
     /**
-     * @brief Remove um produto do carrinho.
+     * @brief Remove um produto do carrinho pelo ID.
      * @param id Identificador do produto.
      */
     void removerProduto(int id);
@@ -43,4 +43,4 @@ public:
     void visualizar();
 };
 
-#endif
+#endif 

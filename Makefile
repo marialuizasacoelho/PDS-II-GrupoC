@@ -1,7 +1,8 @@
+
 CXX = g++
 CXXFLAGS = -std=c++11 -Wall -Iinclude -Itests
 
-# Arquivos de teste da pasta tests/
+# Arquivos de teste
 TEST_SRC = tests/Teste_produto.cpp \
            tests/teste_administrador.cpp \
            tests/teste_carrinho.cpp \
@@ -11,23 +12,25 @@ TEST_SRC = tests/Teste_produto.cpp \
            tests/teste_sistema.cpp \
            tests/teste_usuario.cpp
 
+# Arquivos de implementação em src/
+SRC = $(wildcard src/*.cpp)
+
 EXEC_TEST = build/run_tests
 
 all: $(EXEC_TEST)
 
-# Regra de compilacao
-$(EXEC_TEST): $(TEST_SRC)
+# Compila os testes junto com as implementações
+$(EXEC_TEST): $(TEST_SRC) $(SRC)
 	@mkdir -p build
-	$(CXX) $(CXXFLAGS) $(TEST_SRC) -o $(EXEC_TEST)
+	$(CXX) $(CXXFLAGS) $(TEST_SRC) $(SRC) -o $(EXEC_TEST)
 
-# Regra para rodar os testes
+# Executa os testes
 test: $(EXEC_TEST)
 	./$(EXEC_TEST)
 
-# Regras adicionais de execucao e limpeza
 run: test
 
 clean:
-	rm -rf build/ $(EXEC_TEST)
+	rm -rf build/
 
 .PHONY: all test run clean
