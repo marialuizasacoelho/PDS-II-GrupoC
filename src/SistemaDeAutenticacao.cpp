@@ -1,11 +1,9 @@
 #include "SistemaDeAutenticacao.hpp"
 
-SistemaDeAutenticacao::SistemaDeAutenticacao()
-    : usuarios(), usuarioAutenticado() {
-}
 
 bool SistemaDeAutenticacao::cadastrarUsuario(
-    const std::string& usuario, const std::string& senha) {
+    const std::string& usuario, 
+    const std::string& senha) {
 
     if (usuario.empty() || senha.empty()) {
         return false;
