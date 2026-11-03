@@ -4,7 +4,8 @@ Carrinho::Carrinho() : produtos() {
 }
 
 void Carrinho::adicionarProduto(int id, int quantidade) {
-    if (id < 0 || quantidade <= 0) {
+
+    if (id <= 0 || quantidade <= 0) {
         return;
     }
 
