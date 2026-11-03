@@ -49,11 +49,11 @@ bool Produto::estaDisponivel() const {
 }
 
 bool Produto::possuiEstoqueSuficiente(int qtd) const {
-    return qtd >= 0 && quantidadeEstoque >= qtd;
+    return qtd > 0 && quantidadeEstoque >= qtd;
 }
 
 void Produto::deduzirEstoque(int qtd) {
-    if (qtd < 0 || qtd > quantidadeEstoque) {
+    if (qtd <= 0 || qtd > quantidadeEstoque) {
         return;
     }
 
