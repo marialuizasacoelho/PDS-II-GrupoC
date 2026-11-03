@@ -3,13 +3,14 @@
 
 #include "Usuario.hpp"
 #include <vector>
+#include <stdexcept>
 
 class Carrinho;
 class Pedido;
 
 /**
  * @file Cliente.hpp
- * @brief Definição da classe Cliente.
+ * @brief Definição da classe Cliente com validações defensivas.
  */
 
 /**
@@ -28,6 +29,7 @@ public:
      * @param nome Nome do cliente.
      * @param email E-mail de cadastro.
      * @param senha Senha de acesso.
+     * @throws std::invalid_argument Se id for inválido ou se campos obrigatórios forem vazios.
      */
     Cliente(int id, const std::string& nome, const std::string& email, const std::string& senha);
 
@@ -45,6 +47,7 @@ public:
     /**
      * @brief Adiciona um pedido ao histórico do cliente.
      * @param pedido Ponteiro para o pedido realizado.
+     * @throws std::invalid_argument Se o ponteiro de pedido for nulo.
      */
     void adicionarPedidoAoHistorico(Pedido* pedido);
 
