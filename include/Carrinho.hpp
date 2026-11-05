@@ -3,44 +3,32 @@
 
 #include <map>
 
+class CatalogoDeProdutos;
+
 class Carrinho {
 private:
     std::map<int, int> produtos;
 
 public:
-    /**
-     * @brief Constrói um carrinho vazio.
-     */
     Carrinho();
 
-    /**
-     * @brief Adiciona um produto ao carrinho.
-     * @param id Identificador do produto.
-     * @param quantidade Quantidade desejada.
-     */
-    void adicionarProduto(int id, int quantidade);
+    // Adiciona produto verificando existência e estoque.
+    bool adicionarProduto(CatalogoDeProdutos& catalogo, int id, int quantidade);
 
-    /**
-     * @brief Remove um produto do carrinho pelo ID.
-     * @param id Identificador do produto.
-     */
+    // Remove um produto pelo ID.
     void removerProduto(int id);
 
-    /**
-     * @brief Calcula o valor total da compra.
-     * @return Valor total do carrinho.
-     */
-    double calcularTotal();
+    // Calcula o valor total utilizando os preços do catálogo.
+    double calcularTotal(CatalogoDeProdutos& catalogo) const;
 
-    /**
-     * @brief Esvazia o carrinho.
-     */
+    // Exibe os produtos e seus valores.
+    void visualizar(CatalogoDeProdutos& catalogo) const;
+
+    // Esvazia o carrinho.
     void limpar();
 
-    /**
-     * @brief Exibe os produtos presentes no carrinho.
-     */
-    void visualizar();
+    // Permite consultar os produtos e quantidades armazenados.
+    const std::map<int, int>& getProdutos() const;
 };
 
-#endif 
+#endif
