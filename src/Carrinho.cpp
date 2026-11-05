@@ -1,3 +1,4 @@
+
 #include "Carrinho.hpp"
 #include "CatalogoDeProdutos.hpp"
 #include "Produto.hpp"
@@ -13,7 +14,7 @@ bool Carrinho::adicionarProduto(
     int id,
     int quantidade
 ) {
-    if (id < 0 || quantidade <= 0) {
+    if (id <= 0 || quantidade <= 0) {
         return false;
     }
 
@@ -24,7 +25,6 @@ bool Carrinho::adicionarProduto(
     }
 
     int quantidadeAtual = 0;
-
     auto it = produtos.find(id);
 
     if (it != produtos.end()) {
@@ -39,7 +39,6 @@ bool Carrinho::adicionarProduto(
     }
 
     produtos[id] += quantidade;
-
     return true;
 }
 

@@ -2,10 +2,11 @@
 #define USUARIO_HPP
 
 #include <string>
+#include <stdexcept>
 
 /**
  * @file Usuario.hpp
- * @brief Definição da classe base Usuario.
+ * @brief Definição da classe base Usuario com tratamento de exceções.
  */
 
 /**
@@ -26,6 +27,7 @@ public:
      * @param nome Nome do usuário.
      * @param email E-mail de acesso.
      * @param senha Senha de acesso.
+     * @throws std::invalid_argument Se o ID for <= 0 ou se algum campo de texto for vazio.
      */
     Usuario(int id, const std::string& nome, const std::string& email, const std::string& senha);
 
@@ -56,6 +58,7 @@ public:
      * @brief Valida se a senha informada corresponde à cadastrada.
      * @param senhaInput Senha a ser testada.
      * @return true se correta, false caso contrário.
+     * @throws std::invalid_argument Se a senha fornecida for vazia.
      */
     bool validarSenha(const std::string& senhaInput) const;
 

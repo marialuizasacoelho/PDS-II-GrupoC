@@ -1,4 +1,6 @@
 #include "Produto.hpp"
+#include <stdexcept>
+#include <cmath>
 
 Produto::Produto(int id, const std::string& nome, const std::string& descricao,
                  double preco, int estoque)
@@ -7,6 +9,19 @@ Produto::Produto(int id, const std::string& nome, const std::string& descricao,
       descricao(descricao),
       preco(preco),
       quantidadeEstoque(estoque) {
+//checagem do construtor
+      if (id <= 0) {
+        throw std::invalid_argument("ID do produto invalido.");
+    }
+    if (nome.empty()) {
+        throw std::invalid_argument("O nome do produto nao pode ser vazio.");
+    }
+    if (!std::isfinite(preco) || preco <= 0) {
+        throw std::invalid_argument("Preco invalido.");
+    }
+    if (estoque < 0) {
+        throw std::invalid_argument("Estoque nao pode ser negativo.");
+    }
 }
 
 int Produto::getId() const {
@@ -34,11 +49,11 @@ bool Produto::estaDisponivel() const {
 }
 
 bool Produto::possuiEstoqueSuficiente(int qtd) const {
-    return qtd >= 0 && quantidadeEstoque >= qtd;
+    return qtd > 0 && quantidadeEstoque >= qtd;
 }
 
 void Produto::deduzirEstoque(int qtd) {
-    if (qtd < 0 || qtd > quantidadeEstoque) {
+    if (qtd <= 0 || qtd > quantidadeEstoque) {
         return;
     }
 
