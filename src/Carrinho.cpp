@@ -108,3 +108,27 @@ void Carrinho::limpar() {
 const std::map<int, int>& Carrinho::getProdutos() const {
     return produtos;
 }
+
+bool Carrinho::alterarQuantidade(
+    CatalogoDeProdutos& catalogo,
+    int id,
+    int quantidade
+) {
+    if (quantidade <= 0) {
+        return false;
+    }
+
+    Produto* produto = catalogo.buscarProduto(id);
+
+    auto it = produtos.find(id);
+
+    if (produto == nullptr ||
+        it == produtos.end() ||
+        !produto->possuiEstoqueSuficiente(quantidade)) {
+        return false;
+    }
+
+    it->second = quantidade;
+
+    return true;
+}

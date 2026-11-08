@@ -67,3 +67,17 @@ void Produto::setQuantidadeEstoque(int novaQtd) {
 
     quantidadeEstoque = novaQtd;
 }
+
+bool Produto::atualizarDados(const std::string& novoNome,
+                             const std::string& novaDescricao,
+                             double novoPreco) {
+    if (novoNome.empty() || !std::isfinite(novoPreco) || novoPreco <= 0) {
+        return false;
+    }
+
+    nome = novoNome;
+    descricao = novaDescricao;
+    preco = novoPreco;
+
+    return true;
+}

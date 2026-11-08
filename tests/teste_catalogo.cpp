@@ -20,3 +20,20 @@ TEST_CASE("Catalogo permite adicionar um produto") {
 
     CHECK_NOTHROW(catalogo.adicionarProduto(produto));
 }
+TEST_CASE("Catalogo busca produtos por parte do nome sem diferenciar maiusculas") {
+    CatalogoDeProdutos catalogo;
+
+    catalogo.adicionarProduto(
+        Produto(1, "Mouse sem fio", "Bluetooth", 50.0, 4)
+    );
+
+    catalogo.adicionarProduto(
+        Produto(2, "Teclado", "USB", 80.0, 3)
+    );
+
+    std::vector<Produto*> encontrados =
+        catalogo.buscarPorNome("MOUSE");
+
+    CHECK(encontrados.size() == 1);
+    CHECK(encontrados[0]->getId() == 1);
+}

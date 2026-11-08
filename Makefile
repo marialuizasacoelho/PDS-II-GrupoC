@@ -15,6 +15,15 @@ TEST_SRC = tests/Teste_produto.cpp \
 # Arquivos de implementação em src/
 SRC = $(wildcard src/*.cpp)
 
+EXEC_APP = build/loja
+
+$(EXEC_APP): app/main.cpp $(SRC)
+	@mkdir -p build
+	$(CXX) $(CXXFLAGS) app/main.cpp $(SRC) -o $(EXEC_APP)
+
+demo: $(EXEC_APP)
+	./$(EXEC_APP)
+
 EXEC_TEST = build/run_tests
 
 all: $(EXEC_TEST)
@@ -33,4 +42,4 @@ run: test
 clean:
 	rm -rf build/
 
-.PHONY: all test run clean
+.PHONY: all test run clean demo

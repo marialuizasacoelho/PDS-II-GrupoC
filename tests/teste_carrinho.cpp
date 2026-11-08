@@ -113,3 +113,22 @@ TEST_CASE("Carrinho pode ser limpo") {
 
     CHECK(carrinho.getProdutos().empty());
 }
+TEST_CASE("Carrinho altera quantidade respeitando o estoque") {
+    CatalogoDeProdutos catalogo;
+
+    catalogo.adicionarProduto(
+        Produto(1, "Caderno", "Universitario", 20.0, 5)
+    );
+
+    Carrinho carrinho;
+
+    CHECK(carrinho.adicionarProduto(catalogo, 1, 2));
+
+    CHECK(carrinho.alterarQuantidade(catalogo, 1, 4));
+
+    CHECK(carrinho.getProdutos().at(1) == 4);
+
+    CHECK_FALSE(carrinho.alterarQuantidade(catalogo, 1, 6));
+
+    CHECK(carrinho.getProdutos().at(1) == 4);
+}

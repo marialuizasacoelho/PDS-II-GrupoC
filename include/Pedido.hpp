@@ -2,48 +2,34 @@
 #define PEDIDO_HPP
 
 #include <string>
+#include <map>
 
 class Pedido {
 private:
     int id;
     std::string status;
     double valorTotal;
+    std::string data;
+    std::map<int, int> itens;
 
 public:
-    /**
-     * @brief Cria um novo pedido.
-     * @param id Identificador do pedido.
-     * @param valorTotal Valor total do pedido.
-     */
     Pedido(int id, double valorTotal);
 
-    /**
-     * @brief Finaliza o pedido.
-     */
-    void finalizar();
+    Pedido(
+        int id,
+        double valorTotal,
+        const std::map<int, int>& itens
+    );
 
-    /**
-     * @brief Cancela o pedido.
-     */
+    void finalizar();
     void cancelar();
 
-    /**
-     * @brief Consulta o status atual do pedido.
-     * @return Status do pedido.
-     */
     std::string getStatus() const;
-
-    /**
-     * @brief Obtém o identificador do pedido.
-     * @return ID do pedido.
-     */
     int getId() const;
-
-    /**
-     * @brief Obtém o valor total do pedido.
-     * @return Valor total.
-     */
     double getValorTotal() const;
+    std::string getData() const;
+
+    const std::map<int, int>& getItens() const;
 };
 
 #endif

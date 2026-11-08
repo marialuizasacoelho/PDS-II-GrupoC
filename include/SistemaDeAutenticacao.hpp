@@ -4,49 +4,54 @@
 #include <map>
 #include <string>
 
-/**
- * @file SistemaDeAutenticacao.hpp
- * @brief Definição da classe SistemaDeAutenticacao.
- */
+class Usuario;
 
 /**
- * @class SistemaDeAutenticacao
- * @brief Gerencia o cadastro, a autenticação e o encerramento de sessões.
+ * @brief Gerencia o cadastro, a autenticação e as sessões dos usuários.
  */
 class SistemaDeAutenticacao {
 private:
-    std::map<std::string, std::string> usuarios;
-    std::string usuarioAutenticado;
+    // Associa o e-mail ao usuário cadastrado.
+    std::map<std::string, Usuario*> usuarios;
+
+    // Guarda o usuário que está atualmente autenticado.
+    Usuario* usuarioAutenticado;
 
 public:
-    /**
-     * @brief Cadastra um novo usuário.
-     * @param usuario Nome do usuário.
-     * @param senha Senha do usuário.
-     * @return true se o cadastro for realizado com sucesso.
-     */
-    bool cadastrarUsuario(const std::string& usuario,
-                          const std::string& senha);
+    SistemaDeAutenticacao();
 
     /**
-     * @brief Realiza a autenticação de um usuário.
-     * @param usuario Nome do usuário.
-     * @param senha Senha informada.
-     * @return true caso as credenciais sejam válidas.
+     * @brief Cadastra um usuário no sistema.
+     * @return true se o cadastro for realizado com sucesso.
      */
-    bool autenticar(const std::string& usuario,
+    bool cadastrarUsuario(Usuario* usuario);
+
+    /**
+     * @brief Autentica um usuário usando e-mail e senha.
+     * @return true se as credenciais forem válidas.
+     */
+    bool autenticar(const std::string& email,
                     const std::string& senha);
 
     /**
-     * @brief Encerra a sessão do usuário.
+     * @brief Encerra a sessão atual.
      */
     void logout();
 
     /**
-     * @brief Verifica se existe um usuário autenticado.
-     * @return true caso exista uma sessão ativa.
+     * @brief Verifica se existe uma sessão ativa.
      */
     bool estaAutenticado() const;
+
+    /**
+     * @brief Retorna o usuário autenticado.
+     */
+    Usuario* getUsuarioAutenticado() const;
+
+    /**
+     * @brief Verifica se o usuário autenticado é administrador.
+     */
+    bool usuarioEhAdmin() const;
 };
 
-#endif 
+#endif

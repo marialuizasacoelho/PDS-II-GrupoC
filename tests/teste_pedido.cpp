@@ -1,5 +1,6 @@
 #include "doctest.h"
 #include "Pedido.hpp"
+#include <map>
 
 TEST_CASE("Pedido armazena ID e valor total") {
     Pedido pedido(10, 150.0);
@@ -28,4 +29,18 @@ TEST_CASE("Finalizar e cancelar alteram o status do pedido") {
     cancelado.cancelar();
 
     CHECK(finalizado.getStatus() != cancelado.getStatus());
+}
+
+TEST_CASE("Pedido guarda data e itens comprados") {
+    std::map<int, int> itens;
+
+    itens[2] = 3;
+
+    Pedido pedido(12, 240.0, itens);
+
+    CHECK_FALSE(pedido.getData().empty());
+
+    CHECK(pedido.getItens().size() == 1);
+
+    CHECK(pedido.getItens().at(2) == 3);
 }
