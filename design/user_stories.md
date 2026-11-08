@@ -99,7 +99,6 @@ Como cliente, quero finalizar meu carrinho e realizar um pedido, para concluir a
 
 - Permitir a finalização de carrinhos que contenham produtos.
 - Exibir um resumo dos produtos e do valor total antes da confirmação.
-- Solicitar os dados necessários para concluir o pedido.
 - Registrar o pedido após a confirmação da compra.
 - Informar ao cliente se o pedido foi criado com sucesso.
 
