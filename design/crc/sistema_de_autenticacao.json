@@ -14,7 +14,6 @@
     "Restringir o acesso a funcionalidades administrativas a usuários não autorizados"
   ],
   "collaborators": [
-    "Usuario",
-    "GerenciadorDeUsuarios"
+    "Usuario"
   ]
 }

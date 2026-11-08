@@ -10,7 +10,6 @@
     "Alterar a quantidade de um produto já adicionado\t",
     "Calcular o valor total do carrinho\t",
     "Verificar se a quantidade solicitada não ultrapassa o estoque disponível\t",
-    "Gerar um pedido a partir dos itens do carrinho ao finalizar a compra\t",
     "Esvaziar-se após a finalização da compra"
   ],
   "collaborators": [

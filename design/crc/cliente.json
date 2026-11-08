@@ -5,9 +5,6 @@
   "type": 1,
   "responsibilities": [
     "Armazenar nome, e-mail e senha",
-    "Validar preenchimento dos campos obrigatórios no cadastro",
-    "Autenticar-se na plataforma com e-mail e senha",
-    "Encerrar a própria sessão (logout)",
     "Possuir um carrinho de compras associado",
     "Adicionar, remover e alterar produtos no próprio carrinho",
     "Finalizar a compra do carrinho, gerando um pedido",
