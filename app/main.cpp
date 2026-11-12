@@ -75,7 +75,9 @@ static std::string removerEspacosExtremos(const std::string& texto) {
 
 static void menuAdministrador(
     Administrador& admin,
-    CatalogoDeProdutos& catalogo
+    CatalogoDeProdutos& catalogo,
+    std::vector<Pedido*>& pedidosCriados,
+    const std::vector<Cliente*>& clientes
 ) {
     bool continuar = true;
 
@@ -86,7 +88,8 @@ static void menuAdministrador(
                   << "3 - Editar produto\n"
                   << "4 - Remover produto\n"
                   << "5 - Atualizar estoque\n"
-                  << "0 - Sair\n";
+                << "6 - Visualizar pedidos realizados\n"
+                << "0 - Sair\n";
 
         int opcao = lerInteiro("Opcao: ");
 
@@ -189,6 +192,63 @@ static void menuAdministrador(
             } else {
                 admin.atualizarEstoqueProduto(produto, quantidade);
                 std::cout << "Estoque atualizado.\n";
+            }
+        }
+                else if (opcao == 6) {
+            if (pedidosCriados.empty()) {
+                std::cout << "Nenhum pedido realizado.\n";
+                continue;
+            }
+
+            std::cout << "\n===== PEDIDOS REALIZADOS =====\n";
+
+            for (Pedido* pedido : pedidosCriados) {
+                std::string nomeCliente = "Cliente nao identificado";
+
+                // Descobre a qual cliente pertence o pedido
+                for (Cliente* cliente : clientes) {
+                    std::vector<Pedido*> historico =
+                        cliente->getHistoricoPedidos();
+
+                    for (Pedido* pedidoCliente : historico) {
+                        if (pedidoCliente == pedido) {
+                            nomeCliente = cliente->getNome();
+                            break;
+                        }
+                    }
+
+                    if (nomeCliente != "Cliente nao identificado") {
+                        break;
+                    }
+                }
+
+                std::cout << "\nPedido: " << pedido->getId()
+                          << "\nCliente: " << nomeCliente
+                          << "\nData: " << pedido->getData()
+                          << "\nStatus: " << pedido->getStatus()
+                          << "\nProdutos:\n";
+
+                for (const auto& item : pedido->getItens()) {
+                    Produto* produto =
+                        catalogo.buscarProduto(item.first);
+
+                    if (produto != nullptr) {
+                        std::cout << "  - " << produto->getNome()
+                                  << " | Quantidade: " << item.second
+                                  << " | Preco unitario: R$ "
+                                  << produto->getPreco() << '\n';
+                    } else {
+                        std::cout << "  - Produto ID " << item.first
+                                  << " (removido do catalogo)"
+                                  << " | Quantidade: " << item.second
+                                  << '\n';
+                    }
+                }
+
+                std::cout << "Valor total: R$ "
+                          << pedido->getValorTotal() << '\n';
+
+                std::cout << "------------------------------\n";
             }
         }
 
@@ -516,7 +576,12 @@ senha = removerEspacosExtremos(senha);
             std::cout << "Login realizado.\n";
 
             if (sistema.usuarioEhAdmin()) {
-                menuAdministrador(admin, catalogo);
+                menuAdministrador(
+    admin,
+    catalogo,
+    pedidosCriados,
+    clientes
+);
             } else {
                 Cliente* cliente =
                     static_cast<Cliente*>(
